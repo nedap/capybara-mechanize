@@ -112,6 +112,7 @@ class Capybara::Mechanize::Browser < Capybara::RackTest::Browser
   end
 
   def post_data(params)
+    return params if params.is_a?(String)
     params.inject({}) do |memo, param|
       case param
       when Hash
